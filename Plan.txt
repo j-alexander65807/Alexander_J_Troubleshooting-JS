@@ -1,0 +1,4 @@
+Bugs
+1) Limit drop zones to one puzzle-piece (each puzzle-piece becomes a child of the dropzone in DOM, so if we check for children maybe we can deny the drop using return)
+2) Reset needs to refresh the game board (is removeChild the best option or could we call 
+the same function that originally sets the the page up or is there other methods)
