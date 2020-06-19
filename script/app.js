@@ -48,13 +48,22 @@
 		event.target.appendChild(document.querySelector(`#${droppedImage}`));
 	}
 
-	
+	// BUG_2_Solution
+	// resets the puzzle pieces when clicking the thumbnails to change pieces
+	// when this function is called, a for loop will append each child back to the parent node
+	function resetPuzzlePieces() {
+		for (let i = 0; i < puzzlePieces.length; i++) {
+			zonePieces.appendChild(puzzlePieces[i]);
+		}
+	}
+
 	// add event handling here
 	// what triggers do we need
 
 	// click on the bottom buttons to change the puzzle images and reset pieces
 	puzzleButtons.forEach(button => {
 		button.addEventListener('click', changeImageSet);
+		button.addEventListener('click', resetPuzzlePieces);
 	});
 
 	puzzlePieces.forEach(piece => piece.addEventListener('dragstart', allowDrag));
